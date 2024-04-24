@@ -1,0 +1,14 @@
+---
+- name: Echo all hosts
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Echo the hostname of all hosts
+      ansible.builtin.command: echo {{ ansible_hostname }}
+      register: echo_result
+      changed_when: echo_result.stderr == ""
+
+    - name: Show echo_result variable
+      ansible.builtin.debug:
+        var: echo_result
