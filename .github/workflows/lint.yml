@@ -1,3 +1,4 @@
+---
 name: YAML Lint
 on:
   push:
@@ -10,12 +11,12 @@ jobs:
   lint:
     runs-on: ubuntu-20.04
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y yamllint
-    - name: Run yamllint
-      run: |
-        yamllint .
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yamllint
+      - name: Run yamllint
+        run: |
+          yamllint .
