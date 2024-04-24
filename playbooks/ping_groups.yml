@@ -1,0 +1,8 @@
+---
+- name: Ping groups of hosts
+  hosts: "{{ my_hosts | default([]) }}"
+  gather_facts: false
+
+  tasks:
+    - name: Ping hosts in {{ my_hosts }}
+      ansible.builtin.ping:
